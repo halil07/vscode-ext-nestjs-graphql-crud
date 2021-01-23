@@ -1,0 +1,33 @@
+import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { v4 as uuid } from 'uuid';
+import { Repository } from 'typeorm';
+import { Create{{nameUpper}}Input } from './{{nameLower}}.input';
+import { {{nameUpper}} } from './{{nameLower}}.entity';
+
+@Injectable()
+export class {{nameUpper}}Service {
+  constructor(
+    @InjectRepository({{nameUpper}}) private {{nameLower}}Repository: Repository<{{nameUpper}}>, 
+  ) {}
+
+  async get{{nameUpper}}(id: string): Promise<{{nameUpper}}> {
+    return this.{{nameLower}}Repository.findOne({ id });
+  }
+
+  async get{{nameUpper}}s(): Promise<{{nameUpper}}[]> {
+    return this.{{nameLower}}Repository.find();
+  }
+
+  async create{{nameUpper}}(create{{nameUpper}}Input: Create{{nameUpper}}Input): Promise<{{nameUpper}}> {
+    const { firstName, lastName } = create{{nameUpper}}Input;
+
+    const {{nameLower}} = this.{{nameLower}}Repository.create({
+      id: uuid(),
+      firstName,
+      lastName
+    });
+
+    return this.{{nameLower}}Repository.save({{nameLower}});
+  }
+}

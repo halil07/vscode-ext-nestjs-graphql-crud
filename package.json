@@ -32,8 +32,8 @@
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
-    "compile": "tsc -p ./ && npm run copy",
-    "copy":"cp -r ./src/templates ./out",
+    "compile": "rm -rf ./out && tsc -p ./ && npm run copy",
+		"copy": "cp -r src/templates ./out",
     "watch": "tsc -watch -p ./src/**/*",
     "pretest": "npm run compile && npm run lint",
     "lint": "eslint src --ext ts",

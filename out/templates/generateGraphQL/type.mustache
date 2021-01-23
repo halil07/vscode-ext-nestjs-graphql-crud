@@ -1,0 +1,13 @@
+import { ObjectType, Field } from '@nestjs/graphql';
+
+@ObjectType('{{nameUpper}}')
+export class {{nameUpper}}Type {
+  @Field()
+  id: string;
+
+  @Field()
+  firstName: string;
+
+  @Field()
+  lastName: string;
+}
