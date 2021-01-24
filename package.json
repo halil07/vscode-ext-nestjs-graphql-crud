@@ -1,6 +1,6 @@
 {
-  "name": "nestjs",
-  "displayName": "NestJs",
+  "name": "nestjs-code-generator",
+  "displayName": "NestJS Code Generator",
   "description": "",
   "version": "0.0.1",
   "engines": {
@@ -10,20 +10,20 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:extension.GenerateGraphQL"
+    "onCommand:extension.nestjs-code-generator.GenerateGraphQL"
   ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "extension.GenerateGraphQL",
+        "command": "extension.nestjs-code-generator.GenerateGraphQL",
         "title": "NestJS - Generate GraphQL CRUD"
       }
     ],
     "menus": {
       "explorer/context": [
         {
-          "command": "extension.GenerateGraphQL",
+          "command": "extension.nestjs-code-generator.GenerateGraphQL",
           "when": "explorerResourceIsFolder",
           "group": "2_workspace"
         }
@@ -33,8 +33,8 @@
   "scripts": {
     "vscode:prepublish": "npm run compile",
     "compile": "rm -rf ./out && tsc -p ./ && npm run copy",
-		"copy": "cp -r src/templates ./out",
-    "watch": "tsc -watch -p ./src/**/*",
+    "copy": "cp -r src/templates ./out",
+    "watch": "npm run compile && tsc -watch -p ./",
     "pretest": "npm run compile && npm run lint",
     "lint": "eslint src --ext ts",
     "test": "node ./out/test/runTest.js"

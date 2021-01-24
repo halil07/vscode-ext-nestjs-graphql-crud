@@ -3,5 +3,6 @@
     "input",
     "resolver",
     "service",
-    "type"
+    "type",
+    "module"
 ]

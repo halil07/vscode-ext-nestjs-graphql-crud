@@ -1,11 +1,10 @@
 import { workspace, commands, ExtensionContext, window, Uri } from "vscode";
 import { createFiles } from "./file-helper";
 import { invalidFileNames } from "./utils";
-import { basename } from "path";
 
 export function activate(context: ExtensionContext) {
   let disposableModuleCommand = commands.registerCommand(
-    "extension.GenerateGraphQL",
+    "extension.nestjs-code-generator.GenerateGraphQL",
     (resource: Uri) => {
       if (workspace === undefined) {
         return window.showErrorMessage("Please select a workspace first");

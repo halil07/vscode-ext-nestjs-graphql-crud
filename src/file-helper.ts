@@ -2,23 +2,15 @@ import {
   window,
   Uri,
   workspace,
-  WorkspaceEdit,
-  Position,
-  commands,
   FileType,
 } from "vscode";
 import { render } from "mustache";
 import {
-  getPascalCase,
-  getRelativePathForImport,
-  getArraySchematics,
-  getLineNoFromString,
   getClassName,
-  getCamelCase,
 } from "./utils";
 import * as fs from "fs-extra";
-import { join, basename } from "path";
-import { TextEncoder, TextDecoder } from "util";
+import { join } from "path";
+import { TextEncoder } from "util";
 import { NestFile, generatedFilesType } from "./nest";
 
 export async function createFiles(file: NestFile) {
@@ -47,12 +39,6 @@ export async function getFileTemplates(file: NestFile) {
       "utf8"
     )
   );
-  const terminal = window.createTerminal(`NestJS Terminal #1 will close`);
-  terminal.sendText(`nest generate module ${file.name}`);
-  setTimeout(async () => {
-    await getFileTemplate(file, "module").then((a) => createGeneratedFile(a));
-    terminal.dispose();
-  }, 3000);
   return typeList.map(
     async (type: string) => await getFileTemplate(file, type)
   );
