@@ -1,7 +1,17 @@
 {
   "name": "nestjs-code-generator",
   "displayName": "NestJS Code Generator",
-  "description": "",
+  "publisher": "halilceyhan",
+  "description": "Create simplify Nestjs code editor",
+  "icon": "images/icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/halil07/vscode-ext-nestjs-graphql-crud"
+  },
+  "bugs": {
+    "url": "https://github.com/halil07/vscode-ext-nestjs-graphql-crud/issues",
+    "email": "halilceyhan@yandex.com"
+  },
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.52.0"
